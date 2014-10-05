@@ -1,9 +1,7 @@
 var fs = require('fs')
-var path = require('path')
 var net = require('net')
-var multilevel = require('multilevel')
-var sublevel = require('level-sublevel')
 var level = require('level')
+var multilevel = require('multilevel')
 var log = require('../lib/log')('database')
 
 module.exports = function(config, done){
@@ -13,7 +11,7 @@ module.exports = function(config, done){
 		process.exit(1)
 	}
 	log('creating level database: %s', dbpath)
-	var db = sublevel(level(dbpath))
+	var db = level(dbpath)
 
 	net.createServer(function (c) {
 		log('level connection')

@@ -27,8 +27,11 @@
     "debug": "^2.0.0",
     "gandalf": "^0.1.0",
     "level": "^0.18.0",
+    "level-sub": "^0.3.3",
     "level-sublevel": "^6.3.13",
     "minimist": "^1.1.0",
-    "multilevel": "^6.0.1"
+    "multilevel": "^6.0.1",
+    "reconnect-net": "0.0.0",
+    "through2": "^0.6.2"
   }
 }
