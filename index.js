@@ -11,11 +11,11 @@ if(services){
 	}
 }
 else{
-	services = fs
-		.readdirSync(path.join(__dirname, 'services'))
-		.map(function(file){
-			return file.replace(/\.js$/, '')
-		})
+	services = [
+		'database',
+		'auth',
+		'web'
+	]
 }
 
 async.forEachSeries(services, function(service, nextService){
