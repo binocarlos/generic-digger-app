@@ -1,9 +1,9 @@
 var gandalf = require('gandalf')
-var log = require('./log')('auth')
-
+var log = require('../lib/log')('auth')
 var providers = ['facebook', 'twitter', 'google']
+var config = require('./config')
 
-module.exports = function(db, config){
+module.exports = function(config){
 	var providerConfig = {}
 
 	providers.forEach(function(provider){
