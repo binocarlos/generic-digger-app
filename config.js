@@ -1,8 +1,12 @@
 var path = require('path')
 module.exports = require('minimist')(process.argv, {
 	alias:{
-		s:'service'
+		s:'service',
+		w:'writemanifest'
 	},
+	boolean:[
+		'writemanifest'
+	],
 	default:{
 		// allocate ports for each service so we can boot them
 		// all at once or individually

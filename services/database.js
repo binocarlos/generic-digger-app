@@ -15,8 +15,10 @@ module.exports = function(config, done){
 	log('creating level database: %s', path)
 	var db = sublevel(level(path))
 
-	db._writeManifest = function(){
-		multilevel.writeManifest(db, path.join(__dirname, '..', 'manifest.json'))
+	if(config.writemanifest){
+		var manifestPath = path.join(__dirname, '..', 'manifest.json')
+		log('writing level manifest: %s', manifestPath)
+		multilevel.writeManifest(db, manifestPath)
 	}
 
 	if(done){
