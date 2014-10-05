@@ -1,13 +1,20 @@
-generic-app
-===========
+generic-digger-app
+==================
 
 A generic app that combines the following:
 
  * digger(server/client) - for general database storage
  * gandalf/shadowfax - for user accounts
- * thehumans - for social networks
 
-This is not a module but a repo you should clone as the starting point for a project.
+It uses leveldb for storage and can scale.
+
+## usage
+
+```bash
+$ DEBUG=* node index.js
+```
+
+This will run the whole stack.
 
 ## licence
 

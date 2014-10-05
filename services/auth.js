@@ -20,9 +20,5 @@ module.exports = function(config, done){
 	log('creating sublevel: auth')
 	var authlevel = db.sublevel('auth')
 
-	authlevel.put('test2', 'hello', function(){
-		done()	
-	})
-	
-
+	done()
 }
