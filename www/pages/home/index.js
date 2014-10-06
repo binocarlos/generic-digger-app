@@ -1,12 +1,15 @@
 var angular = require('angular-bsfy')
 var shadowfax = require('shadowfax')
+var auth = require('../../lib/auth')
 
 var app = angular.module('Home',[
-    shadowfax.name
+	shadowfax.name,
+	auth.name
 ])
-.controller('HomeController', function($scope){
+.controller('HomeController', function($scope, LoginAttempt){
 
-	console.log('-------------------------------------------');
-	console.log('we are in the home controller')
+	$scope.$on('shadowfax:login', function(data){
+		LoginAttempt(data)
+	})
 
 })

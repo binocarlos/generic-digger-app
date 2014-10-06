@@ -1,11 +1,12 @@
 install:
 	@npm install
 
-dev-start:
+dev:
 	sudo DEBUG=* node index.js
 
 buildfolder:
 	mkdir -p www/build
+
 pages: buildfolder
 	browserify \
 		www/pages/home/index.js \
@@ -16,8 +17,4 @@ pages: buildfolder
 		] \
   -o www/build/common.js
 
-pages2: buildfolder
-	browserify -r angular-bsfy --standalone angular-bsfy > www/build/shared.js
-	browserify www/pages/home/index.js --exclude angular-bsfy > www/build/home.js
-
-.PHONY: install dev-start pages pages2 buildfolder
+.PHONY: install dev pages pages2 buildfolder
