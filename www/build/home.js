@@ -9,22 +9,13 @@ var app = angular.module('Home',[
 ])
 .controller('HomeController', function($scope, LoginAttempt){
 
+	$scope.$on('shadowfax:signup', function(){
+		document.location = '/register.html'
+	})
+
 	$scope.$on('shadowfax:login', function(data){
 		LoginAttempt(data)
 	})
 
 })
-},{"../../lib/auth":6,"angular-bsfy":1,"shadowfax":3}],6:[function(require,module,exports){
-module.exports = angular.module('auth',[
-	
-])
-.service('LoginAttempt', function(){
-
-	return function(data){
-		console.log('-------------------------------------------');
-		console.log('login attempt')
-		console.dir(data)
-	}
-	
-})
-},{}]},{},[7]);
+},{"../../lib/auth":6,"angular-bsfy":1,"shadowfax":3}]},{},[7]);

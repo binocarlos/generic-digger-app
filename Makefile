@@ -17,4 +17,6 @@ pages: buildfolder
 		] \
   -o www/build/common.js
 
-.PHONY: install dev pages pages2 buildfolder
+build: pages
+
+.PHONY: install dev pages pages2 buildfolder build

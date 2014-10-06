@@ -1,5 +1,5 @@
 {
-  "name": "generic-app",
+  "name": "generic-digger-app",
   "version": "0.0.1",
   "description": "A template for digger apps",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/binocarlos/genericapp.git"
+    "url": "https://github.com/binocarlos/generic-digger-app.git"
   },
   "keywords": [
     "app"
@@ -16,9 +16,9 @@
   "author": "Kai Davenport",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/binocarlos/genericapp/issues"
+    "url": "https://github.com/binocarlos/generic-digger-app/issues"
   },
-  "homepage": "https://github.com/binocarlos/genericapp",
+  "homepage": "https://github.com/binocarlos/generic-digger-app",
   "devDependencies": {
     "tape": "^3.0.0",
     "factor-bundle": "^2.2.1"
