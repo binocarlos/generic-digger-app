@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/binocarlos/genericapp",
   "devDependencies": {
+    "brfs": "^1.2.0",
     "tape": "^3.0.0"
   },
   "dependencies": {
