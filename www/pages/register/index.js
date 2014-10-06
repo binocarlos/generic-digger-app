@@ -1,12 +1,16 @@
 var angular = require('angular-bsfy')
 var shadowfax = require('shadowfax')
+var auth = require('../../lib/auth')
 
 var app = angular.module('Register',[
-    shadowfax.name
+  shadowfax.name,
+	auth.name
 ])
 .controller('RegisterController', function($scope){
 
-	console.log('-------------------------------------------');
-	console.log('we are in the register controller')
+	$scope.$on('shadowfax:login', function(data){
+		LoginAttempt(data)
+	})
+	
 
 })

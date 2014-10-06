@@ -8,6 +8,10 @@ var app = angular.module('Home',[
 ])
 .controller('HomeController', function($scope, LoginAttempt){
 
+	$scope.$on('shadowfax:signup', function(){
+		document.location = '/register.html'
+	})
+
 	$scope.$on('shadowfax:login', function(data){
 		LoginAttempt(data)
 	})
