@@ -1,38 +1,25 @@
-var log = require('./lib/log')('boot')
-var async = require('async')
-var config = require('./config')
 var fs = require('fs')
 var path = require('path')
-var services = config.service
 
-if(services){
-	if(typeof(services)=='string'){
-		services = [services]
-	}
-}
-else{
-	services = [
-		'database',
-		'auth',
-		'web'
-	]
-}
+var Database = require('./lib/database')
+var Session = require('./lib/session')
+var HTTP = require('./lib/httpserver')
+var Router = require('./lib/router')
+var Gandalf = require('./lib/gandalf')
 
-async.forEachSeries(services, function(service, nextService){
-	log(service + ' starting')
-	var Service = require('./services/' + service)
-	Service(config, function(err){
-		if(err){
-			return nextService(err)
-		}
-		log(service + ' started')
-		nextService()
-	})
-}, function(err){
-	if(err){
-		log.error('error booting: ' + err)
-	}
-	else{
-		log('services booted')
-	}
+var log = require('./lib/log')('boot')
+var config = require('./config')
+
+var db = Database(config)
+var session = Session(db)
+var gandalf = Gandalf(config, db, session)
+
+var router = Router(config, {
+	db:db,
+	session:session,
+	gandalf:gandalf
+})
+
+HTTP(config, router, function(err){
+	log('started')
 })

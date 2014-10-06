@@ -1,16 +1,15 @@
 var path = require('path')
 module.exports = require('minimist')(process.argv, {
 	alias:{
-		s:'service',
-		w:'writemanifest'
+		
 	},
 	boolean:[
-		'writemanifest'
+		
 	],
 	default:{
 		// allocate ports for each service so we can boot them
 		// all at once or individually
-		webport:process.env['WEB_PORT'] || 8080,
+		webport:process.env['WEB_PORT'] || 80,
 		webhost:process.env['WEB_HOST'] || '127.0.0.1',
 		authport:process.env['AUTH_PORT'] || 8081,
 		authhost:process.env['AUTH_HOST'] || '127.0.0.1',

@@ -1,6 +1,7 @@
 install:
 	@npm install
 
-build:
+dev-start:
+	sudo DEBUG=* node index.js
 
-.PHONY: install
+.PHONY: install dev-start
