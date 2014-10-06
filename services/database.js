@@ -14,7 +14,6 @@ module.exports = function(config, done){
 	var db = level(dbpath)
 
 	net.createServer(function (c) {
-		log('level connection')
     c.pipe(multilevel.server(db)).pipe(c)
   }).listen(config.dbport, function(){
   	log('multilevel listening %s', config.dbport)

@@ -21,7 +21,7 @@ else{
 async.forEachSeries(services, function(service, nextService){
 	log(service + ' starting')
 	var Service = require('./services/' + service)
-	var service = Service(config, function(err){
+	Service(config, function(err){
 		if(err){
 			return nextService(err)
 		}

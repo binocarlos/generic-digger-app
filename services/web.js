@@ -1,25 +1,17 @@
+// the front-end HTTP router - serves the static files
 var fs = require('fs')
 var http = require('http')
 
 var log = require('../lib/log')('web')
-//var Router = require('./router')
-//var db = Database(config.database)
-//var auth = Auth(db.sublevel('auth'), config)
-/*
-var router = Router({
-	config:config,
-	db:db,
-	auth:auth
-})
-*/
+var Router = require('../lib/router')
 
 module.exports = function(config, done){
-	var server = http.createServer(function(req, res){
-		res.end('ok')
-	})
+
+	var router = Router(config)
+	var server = http.createServer(router)
 
 	server.listen(config.webport, function(){
-		log('server listening on port: %s', config.webport)
+		log('web listening on port: %s', config.webport)
 		if(done){
 			done()
 		}
