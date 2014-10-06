@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/binocarlos/genericapp",
   "devDependencies": {
-    "tape": "^3.0.0"
+    "tape": "^3.0.0",
+    "factor-bundle": "^2.2.1"
   },
   "dependencies": {
     "angular-bsfy": "^1.2.23-1",
