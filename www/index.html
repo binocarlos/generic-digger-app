@@ -8,7 +8,7 @@
     <link href="css/core.css" rel="stylesheet">
 </head>
 
-<body>
+<body ng-app="Home" ng-controller="HomeController">
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
@@ -30,6 +30,7 @@
               <input type="password" placeholder="Password" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
+            <button type="button" class="btn btn-info">Sign up</button>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
@@ -77,6 +78,9 @@
 
     <script src="material/scripts/ripples.js"></script>
     <script src="material/scripts/material.js"></script>
+
+    
+    <script src="build/home.js"></script>
 
 </body>
 
