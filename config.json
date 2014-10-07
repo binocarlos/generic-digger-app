@@ -1,3 +1,9 @@
 {
-	"title":"My App"
+	"title":"My App",
+	"auth":{
+		"urls":{
+			"login":"/auth/login",
+			"register":"/auth/register"
+		}
+	}
 }

@@ -97,6 +97,28 @@ Then you add a HTML file pointing to the `command` and `mypage` (or whatever you
 </html>
 ```
 
+#### Debugging
+
+The client side code has the debugger plugged in.
+
+To enable client debugging (in Chrome for nice colors) - open the development console and type:
+
+```
+debug.enable('*')
+```
+
+Or to only debug a certain section:
+
+```
+debug.enable('libs:*')
+```
+
+To disable logging again:
+
+```
+debug.disable()
+```
+
 ## licence
 
 MIT

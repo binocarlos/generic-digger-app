@@ -26,6 +26,7 @@
   "dependencies": {
     "angular-bsfy": "^1.2.23-1",
     "debug": "^2.0.0",
+    "dotty": "0.0.2",
     "gandalf": "^2.0.1",
     "level": "^0.18.0",
     "level-session": "^0.3.1",

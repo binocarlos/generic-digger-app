@@ -22,7 +22,8 @@
           <a class="navbar-brand" href="#">{{ config.title }}</a>
         </div>
         <div class="navbar-collapse collapse">
-          <shadowfax-mini-login>
+          <shadowfax-mini-login 
+            login-url="/auth/login">
             <button type="button" class="btn btn-info withripple" ng-click="signup()">Sign up<div class="ripple-wrapper"></div></button>
           </shadowfax-mini-login>
         </div><!--/.navbar-collapse -->
