@@ -1,4 +1,4 @@
-module.exports = angular.module('auth',[
+module.exports = angular.module('libs.auth',[
 	
 ])
 .service('LoginAttempt', function(){
