@@ -1,49 +1,56 @@
-var config = require('./config')
-var dotty = require("dotty")
-var log = require('../../lib/log')('libs:auth')
+var angular = require('angular-bsfy')
+var fs = require('fs')
 
 module.exports = angular.module('libs.auth',[
-	config.name
+	require('shadowfax-http').name,
+	require('shadowfax').name,
+	require('./config').name,
+	require('./debug').name,
+	require('./messages').name
 ])
-.factory('LoginAttempt', function($http, config){
-	var url = dotty.get(config, "auth.urls.login")
-	if(!url){
-		throw new Error("config.auth.urls.login not specified")
+
+/*
+
+	attach the shadowfax events to the scrope to handle logins
+	
+*/
+.controller('AuthController', function($scope, shadowfaxhttp, config, debug, growl){
+	var log = debug('auth')
+	var redirects = {
+		login:config._ensure("auth.redirects.login"),
+		register:config._ensure("auth.redirects.register"),
+		signup:config._ensure("auth.redirects.signup")
 	}
-	return function(data, done){
-		log('LoginAttempt POST %c', url)
-		$http({
-			url: url,
-			method: 'POST',
-			data:data
-		}).then(function(){
-			log('success')
-		}, function(){
-			log.error('error')
-		})
-		
+	var urls = {
+		login:config._ensure("auth.urls.login"),
+		register:config._ensure("auth.urls.register")
 	}
+
+	shadowfaxhttp($scope, urls)
+
+	$scope.$on('shadowfax:error', function($e, type, message){
+		growl.error(type, message)
+	})
+
+	$scope.$on('shadowfax:message', function($e, type, message){
+		growl.message(type, message)
+	})
+
+	$scope.$on('shadowfax:complete', function($e, type){
+		log('complete: %s', type)
+		growl.message(title, message)
+	})
+
+	$scope.$on('shadowfax:signup', function(){
+		log('signup redirect')
+		document.location = redirects.signup
+	})
 })
-.factory('AuthEvents', function(LoginAttempt){
 
-	return function($scope){
-		$scope.$on('shadowfax:message', function(){
-			log('shadowfax:message')
-		})
-
-		$scope.$on('shadowfax:signup', function(){
-			log('shadowfax:signup')
-			document.location = '/register.html'
-		})
-
-		$scope.$on('shadowfax:login', function(data){
-			log('shadowfax:login')
-			LoginAttempt(data, function(err, message){
-				console.log('-------------------------------------------');
-				console.log('done')
-				console.dir(err)
-				console.dir(message)
-			})
-		})
+.directive('signupButton', function(){
+	return {
+		restrict:'EA',
+		replace:true,
+		template:fs.readFileSync(__dirname + '/widgets/signupbutton.html', 'utf8')
 	}
 })

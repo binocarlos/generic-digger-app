@@ -5,7 +5,7 @@ var Database = require('./lib/database')
 var HTTP = require('./lib/httpserver')
 var Router = require('./lib/router')
 var log = require('./lib/log')('boot')
-var config = require('./config')
+var config = require('./lib/config')
 
 var db = Database(config)
 var router = Router(config, db)

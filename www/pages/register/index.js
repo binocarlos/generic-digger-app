@@ -1,20 +1,13 @@
 var angular = require('angular-bsfy')
-var shadowfax = require('shadowfax')
-var auth = require('../../lib/auth')
-var config = require('../../lib/config')
 
 var app = angular.module('Register',[
-  shadowfax.name,
-	auth.name,
-	config.name
+  require('../../lib/auth').name,
+	require('../../lib/config').name,
+	require('../../lib/debug').name,
+	require('../../lib/widgets').name
 ])
-.controller('RegisterController', function($scope, config){
-
+.controller('RegisterController', function($scope, config, debug){
+	var log = debug('controller:register')
+	log('begin')
 	$scope.config = config
-
-	$scope.$on('shadowfax:login', function(data){
-		LoginAttempt(data)
-	})
-	
-
 })

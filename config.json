@@ -3,7 +3,12 @@
 	"auth":{
 		"urls":{
 			"login":"/auth/login",
-			"register":"/auth/register"
+			"register":"/auth/register",
+		},
+		"redirects":{
+			"login":"/dashboard",
+			"register":"/welcome",
+			"signup":"/register.html"
 		}
 	}
 }

@@ -19,9 +19,15 @@
     "url": "https://github.com/binocarlos/generic-digger-app/issues"
   },
   "homepage": "https://github.com/binocarlos/generic-digger-app",
+  "browserify": {
+    "transform": [
+      "brfs"
+    ]
+  },
   "devDependencies": {
     "tape": "^3.0.0",
-    "factor-bundle": "^2.2.1"
+    "factor-bundle": "^2.2.1",
+    "brfs": "^1.2.0"
   },
   "dependencies": {
     "angular-bsfy": "^1.2.23-1",
@@ -35,6 +41,8 @@
     "routes-router": "^4.1.1",
     "routes-router-mount": "^0.1.0",
     "send": "^0.9.3",
+    "shadowfax": "^0.1.0",
+    "shadowfax-http": "^0.1.0",
     "through2": "^0.6.2"
   }
 }

@@ -5,6 +5,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="material/css-compiled/ripples.min.css" rel="stylesheet">
     <link href="material/css-compiled/material-wfont.min.css" rel="stylesheet">
+    <link href="material/css-compiled/growl.css" rel="stylesheet">
     <link href="css/core.css" rel="stylesheet">
 </head>
 
@@ -21,10 +22,10 @@
           </button>
           <a class="navbar-brand" href="#">{{ config.title }}</a>
         </div>
-        <div class="navbar-collapse collapse">
+        <div class="navbar-collapse collapse" ng-controller="AuthController">
           <shadowfax-mini-login 
             login-url="/auth/login">
-            <button type="button" class="btn btn-info withripple" ng-click="signup()">Sign up<div class="ripple-wrapper"></div></button>
+              <signup-button />
           </shadowfax-mini-login>
         </div><!--/.navbar-collapse -->
       </div>
@@ -59,11 +60,10 @@
         </div>
       </div>
 
-      <hr>
-
-      <footer>
-        <p>&copy; Company 2014</p>
-      </footer>
+      <div>
+        <footer />
+      </div>
+      
     </div> <!-- /container -->
     <!-- Your site ends -->
 
@@ -75,6 +75,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="material/scripts/ripples.js"></script>
     <script src="material/scripts/material.js"></script>
+    <script src="material/scripts/growl.js"></script>
 
 </body>
 

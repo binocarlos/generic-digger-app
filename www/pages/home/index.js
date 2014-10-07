@@ -1,19 +1,13 @@
 var angular = require('angular-bsfy')
-var shadowfax = require('shadowfax')
-var auth = require('../../lib/auth')
-var config = require('../../lib/config')
-var log = require('../../../lib/log')('page:home')
 
 var app = angular.module('Home',[
-	shadowfax.name,
-	auth.name,
-	config.name
+	require('../../lib/auth').name,
+	require('../../lib/config').name,
+	require('../../lib/debug').name,
+	require('../../lib/widgets').name
 ])
-.controller('HomeController', function($scope, config, AuthEvents){
-
-	log('home controller begin')
-
+.controller('HomeController', function($scope, config, debug){
+	var log = debug('controller:home')
+	log('begin')
 	$scope.config = config
-
-	AuthEvents($scope)
 })
