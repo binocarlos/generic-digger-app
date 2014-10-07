@@ -7,7 +7,7 @@ dev:
 buildfolder:
 	mkdir -p www/build
 
-pages: buildfolder
+browserifypages:
 	browserify \
 		www/pages/home/index.js \
 		www/pages/register/index.js \
@@ -17,6 +17,20 @@ pages: buildfolder
 		] \
   -o www/build/common.js
 
+uglifypages:
+	browserify \
+  	-g uglifyify \
+		www/pages/home/index.js \
+		www/pages/register/index.js \
+		-p [ factor-bundle \
+			-o www/build/home.min.js \
+			-o www/build/register.min.js \
+		] \
+  -o www/build/common.min.js
+
+devpages: buildfolder browserifypages
+pages: buildfolder browserifypages uglifypages
+
 build: pages
 
-.PHONY: install dev pages pages2 buildfolder build
+.PHONY: install dev pages buildfolder build uglifypages browserifypages

@@ -25,9 +25,10 @@
     ]
   },
   "devDependencies": {
-    "tape": "^3.0.0",
+    "brfs": "^1.2.0",
     "factor-bundle": "^2.2.1",
-    "brfs": "^1.2.0"
+    "tape": "^3.0.0",
+    "uglifyify": "^2.5.0"
   },
   "dependencies": {
     "angular-bsfy": "^1.2.23-1",
