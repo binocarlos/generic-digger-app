@@ -31,7 +31,7 @@
     "uglifyify": "^2.5.0"
   },
   "dependencies": {
-    "angular-bsfy": "^1.2.23-1",
+    "angular-bsfy": "1.2.23-1",
     "debug": "^2.0.0",
     "dotty": "0.0.2",
     "gandalf": "^2.0.1",

@@ -27,6 +27,15 @@ Run:
 $ make dev
 ```
 
+
+## run
+
+To run with the debug module turned on:
+
+```
+$ sudo DEBUG=* node index.js
+```
+
 ### HTTP routes
 The main HTTP routes are defined in `lib/router.js`
 
