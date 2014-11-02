@@ -34,6 +34,7 @@
     "angular-bsfy": "1.2.23-1",
     "debug": "^2.0.0",
     "dotty": "0.0.2",
+    "ecstatic": "^0.5.5",
     "gandalf": "^2.0.1",
     "level": "^0.18.0",
     "level-session": "^0.3.1",
@@ -44,6 +45,6 @@
     "send": "^0.9.3",
     "shadowfax": "^0.1.0",
     "shadowfax-http": "^0.1.0",
-    "through2": "^0.6.2"
+    "through2": "^0.6.3"
   }
 }

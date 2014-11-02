@@ -26,6 +26,12 @@ module.exports = angular.module('libs.auth',[
 		register:config._ensure("auth.urls.register")
 	}
 
+	/*
+	
+		this connects the HTTP hanlder to the correct urls
+		given by the config
+		
+	*/
 	shadowfaxhttp($scope, urls)
 
 	$scope.$on('shadowfax:error', function($e, type, message){

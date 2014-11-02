@@ -7,21 +7,34 @@ dev:
 buildfolder:
 	mkdir -p www/build
 
-browserifypages:
+browserifyangular:
 	browserify \
-		www/pages/home/index.js \
-		www/pages/register/index.js \
+		-r angular-bsfy \
+  	-o www/build/angular.js
+
+uglifyangular:
+	browserify \
+		-g uglifyify \
+		-r angular-bsfy \
+  	-o www/build/angular.min.js
+
+browserifypages: browserifyangular
+	browserify \
+		-x angular-bsfy \
+		www/pages/home.js \
+		www/pages/register.js \
 		-p [ factor-bundle \
 			-o www/build/home.js \
 			-o www/build/register.js \
 		] \
   -o www/build/common.js
 
-uglifypages:
+uglifypages: uglifyangular
 	browserify \
+		-x angular-bsfy \
   	-g uglifyify \
-		www/pages/home/index.js \
-		www/pages/register/index.js \
+		www/pages/home.js \
+		www/pages/register.js \
 		-p [ factor-bundle \
 			-o www/build/home.min.js \
 			-o www/build/register.min.js \
@@ -30,6 +43,7 @@ uglifypages:
 
 devpages: buildfolder browserifypages
 pages: buildfolder browserifypages uglifypages
+qpages: buildfolder browserifypages
 
 build: pages
 
